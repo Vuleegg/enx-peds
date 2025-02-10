@@ -16,42 +16,23 @@
 To create an interactive NPC, use the following export:
 
 ```lua
-exports.quantum_peds:Create(56799598, {
-        coords = vector3(Shared.Podesavanja['vozilo']['coords'].x, Shared.Podesavanja['vozilo']['coords'].y, Shared.Podesavanja['vozilo']['coords'].z),
-        heading = Shared.Podesavanja['vozilo']['coords'].w,
+exports.quantum_peds:Create(56799598, { -- # example index 56799598 ( must to be a number index )
+        coords = vector3(coords.x, coords.y, coords.z),
+        heading = coords.w,
         distance = 5,
-        model = Shared.Podesavanja['vozilo']['ped_model'],
-        name = "Frikni Patofni",
-        label = "Pricaj sa radnikom na parkingu",
-        description = "Dobar dan, kako vam mogu pomoci?",
+        model = "a_m_m_farmer_01",
+        name = "First Name & Last Name",
+        label = "Talk to NPC",
+        description = "Good morning, can i help you?",
         options = {
             {
-                text = "Daj da vidim sta cu voziti danas",
-                onClick = function()
-                    local opcije = {}
-                        for k, v in pairs(Shared.Podesavanja['vozilo']['modeli']) do
-                            opcije[#opcije + 1] = {
-                                title = v.label,
-                                icon = 'fa-solid fa-screwdriver-wrench',
-                                onSelect = function()
-                                    local metadata = Shared.Podesavanja['vozilo']
-                                    SpawnujKolca(v.model, vec3(metadata['spawnpoint'].x, metadata['spawnpoint'].y, metadata['spawnpoint'].z), metadata['spawnpoint'].w)
-                                end,
-                                description = 'Izvadi vozilo',
-                                args = { id = v.id, name = v.name, kreirajprop = v.kreirajprop },
-                                arrow = true,
-                            }
-                        end
-                        lib.registerContext({
-                            id = 'menivozilameh',
-                            title = 'Lista Vozila',
-                            options = opcije
-                        })
-                        lib.showContext('menivozilameh')
+                text = "Open Example Function",
+                onClick = function() -- # function value you can use instead of that event or serverEvent value 
+                    exampleFunction()
                 end,
                 close = true,
-                canInteract = function()
-                    if QBCore.Functions.GetPlayerData().job.name == "mehanicar" then
+                canInteract = function() -- # Example of can interact function ( if is false option it will not be showed in menu )
+                    if QBCore.Functions.GetPlayerData().job.name == "mechanic" then
                         return true
                     else
                         return false
@@ -59,18 +40,14 @@ exports.quantum_peds:Create(56799598, {
                 end,
             },
             {
-                text = "Parkiraj mi vozilo",
-                onClick = function()
-                    obrisiNajblize()
-                end,
+                text = "Park my vehicle",
+                event = "example:client:Event",
                 close = true,
-                canInteract = function()
-                    if QBCore.Functions.GetPlayerData().job.name == "mehanicar" then
-                        return true
-                    else
-                        return false
-                    end
-                end,
+            },
+            {
+                text = "Vehicle Keys",
+                serverEvent = "example:server:Event",
+                close = true,
             },
         },
     })
