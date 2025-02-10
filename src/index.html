@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Ped System</title>
+  <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+<body class="text-white select-none min-h-screen">
+
+  <div id="ped-ui" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 w-4/12 bg-gray-900 p-4 rounded-md hidden">
+    <div class="flex items-center space-x-2">
+      <div class="bg-white bg-opacity-50 border border-white text-white h-8 w-8 flex items-center justify-center rounded-md">
+        <i class="fas fa-user text-white"></i>
+      </div>
+      <span class="text-white text-xl font-semibold">John Wick</span>
+    </div>
+    
+    <hr class="my-2 border-white border-2">
+    
+    <div class="bg-gray-800 text-black p-2 rounded-md my-2">
+      <p class="text-white font-semibold">This is a test dialog</p>
+    </div>
+    
+    <hr class="my-2 border-white border-2">
+    
+    <div class="grid grid-cols-2 gap-2">
+      <button class="bg-gray-800 p-2 rounded-md flex items-center space-x-2 hover:bg-gray-700 hover:scale-105 transition-transform">
+        <div class="bg-gray-600 bg-opacity-50 border text-white h-6 w-6 flex items-center justify-center rounded-md">
+          <span class="font-bold text-sm">0</span>
+        </div>   
+        <p class="text-white text-sm">I want to work.</p>
+      </button>
+      <button class="bg-gray-800 p-2 rounded-md flex items-center space-x-2 hover:bg-gray-700 hover:scale-105 transition-transform">
+        <div class="bg-gray-600 bg-opacity-50 border text-white h-6 w-6 flex items-center justify-center rounded-md">
+          <span class="font-bold text-sm">1</span>
+        </div>                
+        <p class="text-white text-sm">More options.</p>
+      </button>
+      <button class="bg-gray-800 p-2 rounded-md flex items-center space-x-2 hover:bg-gray-700 hover:scale-105 transition-transform">
+        <div class="bg-gray-600 bg-opacity-50 border text-white h-6 w-6 flex items-center justify-center rounded-md">
+          <span class="font-bold text-sm">2</span>
+        </div>   
+        <p class="text-white text-sm">I don't want to work.</p>
+      </button>
+    </div>
+  </div>
+
+  <div id="debug-ui" class="fixed right-0 top-1/2 transform -translate-y-1/2 flex items-center hidden">
+    <div class="flex items-center p-6">
+      <div class="flex items-center justify-center w-12 h-12 bg-gray-800 border border-gray-700 text-white rounded mr-4">
+        <span id="slovo" class="text-xl text-white font-bold">E</span>
+      </div>
+
+      <div class="px-4 py-2 bg-gray-800 border border-gray-700 rounded">
+        <span id='porukica' class="text-xl font-semibold text-white">Test message</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
