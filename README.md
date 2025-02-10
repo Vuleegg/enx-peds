@@ -19,7 +19,7 @@
 To create an interactive NPC, use the following export:
 
 ```lua
-exports.quantum_peds:Create(56799598, { -- # example index 56799598 ( must to be a number index )
+exports['enx-peds']:Create(56799598, { -- # example index 56799598 ( must to be a number index )
         coords = vector3(coords.x, coords.y, coords.z),
         heading = coords.w,
         distance = 5,
